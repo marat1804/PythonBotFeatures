@@ -3,9 +3,10 @@ import time
 import random
 import keyboard
 import SFP_Function
+import Config
 import json
 
-token = "71af92a2a6fa1809b42cc479d79023cb8972e8b44da82dac17d832c539b7eead0c145d230afb7add3d9ef"
+token = Config.token
 session = vk.Session()
 api = vk.API(session, lang='ru', v=5.85)
 
