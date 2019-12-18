@@ -22,12 +22,14 @@ while True:
     try:
         data = api.messages.getConversations(filter='unread', access_token=token)['items']
         for j in range(len(data)):
-            print(data)
+            #print(data)
             id_message = data[j]['conversation']
             id = id_message['peer']['id']
             k = id_message['unread_count']
             message = api.messages.getHistory(user_id=id, access_token=token, count=k)['items']
             for i in range(len(message)):
+                text = message[i]['text']
+                print(text)
                 if len(message[i]['attachments']) == 0:
                     if message[i]['text'] == "Меню" or message[i]['text'] == "меню":
                         api.messages.send(peer_id=id, message="Так и быть.", keyboard=kb,
